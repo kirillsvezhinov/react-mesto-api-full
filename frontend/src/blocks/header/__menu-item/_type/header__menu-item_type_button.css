@@ -1,0 +1,12 @@
+.header__menu-item_type_button {
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.header__menu-item_type_button:hover {
+  opacity: 0.6;
+}

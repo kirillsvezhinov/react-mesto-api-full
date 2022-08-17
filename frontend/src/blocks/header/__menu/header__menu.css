@@ -1,0 +1,19 @@
+.header__menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: baseline;
+  width:calc(100% - 145px);
+  padding-top: 7px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .header__menu {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
