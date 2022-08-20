@@ -15,6 +15,7 @@ const { logout } = require('./controllers/logout');
 const { createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const cors = require('./middlewares/cors');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
@@ -32,6 +33,8 @@ app.use(cookieParser());
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.use(express.json());
+
+app.use(requestLogger);
 
 app.use(cors);
 
@@ -66,6 +69,8 @@ app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
 
 app.use('*', (req, res, next) => next(new NotFoundError('404 Not Found')));
+
+app.use(errorLogger);
 
 app.use(errors());
 
