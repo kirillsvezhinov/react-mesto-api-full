@@ -1,10 +1,7 @@
-module.exports = (req, res, next) => {
-  // Массив доменов, с которых разрешены кросс-доменные запросы
-  const allowedCors = [
-    'http://localhost:3000',
-    'http://localhost:3001',
-  ];
+// Массив доменов, с которых разрешены кросс-доменные запросы
+const { allowedCors } = require('../utils/config');
 
+module.exports = (req, res, next) => {
   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
 
