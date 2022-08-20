@@ -46,6 +46,7 @@ function App() {
       api.getUserInfo()
       .then((userData) => {
         setCurrentUser(userData);
+        setEmail(userData.email);
       })
       .catch(err => console.log(err));
 
@@ -158,8 +159,7 @@ function App() {
 
   function handleLogin(data) {
     apiAuth.authorize(data)
-    .then((res) => {
-      localStorage.setItem('token', res.token);
+    .then(() => {
       setLoggedIn(true);
       setEmail(data.email);
       navigate('/');
@@ -168,25 +168,25 @@ function App() {
   }
 
   function handleSignOut () {
-    localStorage.removeItem('token');
-    setLoggedIn(false);
-    navigate('/signin');
+    apiAuth.logout()
+    .then(() => {
+      setLoggedIn(false);
+      navigate('/signin');
+    })
+    .catch(err => console.log(err));
   }
 
   function handleTokenCheck() {
-
-    if(localStorage.getItem('token')) {
-      apiAuth.checkToken(localStorage.getItem('token'))
+    apiAuth.checkToken()
       .then((res) => {
-        setEmail(res.data.email);
-        setLoggedIn(true);
-        navigate('/');
+        if (res.ok) {
+          setLoggedIn(true);
+          navigate('/');
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-    }
-
   }
 
   return (
