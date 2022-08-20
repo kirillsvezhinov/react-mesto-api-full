@@ -9,14 +9,14 @@ class ApiAuth {
       return res.json();
     }
 
-  return Promise.reject(`Ошибка: ${res.status}`);
+    return Promise.reject(`Ошибка: ${res.status}`);
   }
 
   register(data) {
     return fetch(`${this._baseUrl}/signup`, {
         method: 'POST',
         headers: this._headers,
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
     }).then(this._checkPromise);
   }
 
@@ -24,15 +24,25 @@ class ApiAuth {
     return fetch(`${this._baseUrl}/signin`, {
         method: 'POST',
         headers: this._headers,
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 
-  checkToken(token) {
-    return fetch(`${this._baseUrl}/users/me`, {
+  logout() {
+    return fetch(`${this._baseUrl}/signout`, {
         method: 'GET',
-        headers: {...this._headers, "Authorization" : `Bearer ${token}`}
+        headers: this._headers,
+        credentials: 'include'
     }).then(this._checkPromise);
+  }
+
+  checkToken() {
+    return fetch(`${this._baseUrl}/auth`, {
+        method: 'GET',
+        headers: this._headers,
+        credentials: 'include'
+    });
   }
 
 }

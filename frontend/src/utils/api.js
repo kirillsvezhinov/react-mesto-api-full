@@ -16,6 +16,7 @@ class Api {
     return fetch(`${this._baseUrl}users/me`, {
         method: 'GET',
         headers: this._headers,
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 
@@ -23,7 +24,8 @@ class Api {
     return fetch(`${this._baseUrl}users/me`, {
         method: 'PATCH',
         headers: this._headers,
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 
@@ -31,7 +33,8 @@ class Api {
     return fetch(`${this._baseUrl}users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 
@@ -39,20 +42,23 @@ class Api {
     return fetch(`${this._baseUrl}cards`, {
         method: 'GET',
         headers: this._headers,
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 
   _setLike(cardId) {
     return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
         method: 'PUT',
-        headers: this._headers
+        headers: this._headers,
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 
   _removeLike(cardId) {
     return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
         method: 'DELETE',
-        headers: this._headers
+        headers: this._headers,
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 
@@ -64,14 +70,16 @@ class Api {
     return fetch(`${this._baseUrl}cards`, {
         method: 'POST',
         headers: this._headers,
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}cards/${cardId}`, {
         method: 'DELETE',
-        headers: this._headers
+        headers: this._headers,
+        credentials: 'include'
     }).then(this._checkPromise);
   }
 }
@@ -79,7 +87,6 @@ class Api {
 const api = new Api({
   baseUrl: 'http://localhost:3000/',
   headers: {
-    authorization: '7a2dc15d-d1bf-4fc7-a20c-343b3e4fd575',
     'Content-Type': 'application/json',
   }
 });
