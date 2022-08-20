@@ -9,12 +9,12 @@ const cookieParser = require('cookie-parser');
 
 const { PORT = 3000 } = process.env;
 const NotFoundError = require('./errors/not-found-err');
-const { STATUS_CODE_INTERNAL_SERVER_ERROR } = require('./utils/statusCodes');
+const { STATUS_CODE_OK, STATUS_CODE_INTERNAL_SERVER_ERROR } = require('./utils/statusCodes');
 const { login } = require('./controllers/login');
+const { logout } = require('./controllers/logout');
 const { createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const cors = require('./middlewares/cors');
-const { urlRegex } = require('./utils/config');
 
 const app = express();
 
@@ -44,13 +44,20 @@ app.post('/signin', celebrate({
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
-    avatar: Joi.string().regex(urlRegex),
     email: Joi.string().required().email(),
     password: Joi.string().required(),
   }),
 }), createUser);
+
+app.get('/auth', auth, (req, res, next) => {
+  try {
+    res.sendStatus(STATUS_CODE_OK);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get('/signout', logout);
 
 app.use(auth);
 
@@ -64,6 +71,8 @@ app.use(errors());
 
 app.use((err, req, res, next) => {
   const { statusCode = STATUS_CODE_INTERNAL_SERVER_ERROR, message } = err;
+
+  console.log('ОШИБКА: ', err.name, err.message);
 
   res
     .status(statusCode)
