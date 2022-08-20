@@ -10,27 +10,6 @@ const { SALT_ROUND } = require('../utils/config');
 
 const { STATUS_CODE_CREATED } = require('../utils/statusCodes');
 
-module.exports.getUsers = (req, res, next) => {
-  User.find({})
-    .then((user) => res.send(user))
-    .catch(next);
-};
-
-module.exports.getUserById = (req, res, next) => {
-  User.findById(req.params.userId)
-    .orFail()
-    .then((user) => res.send(user))
-    .catch((err) => {
-      if (err.name === 'DocumentNotFoundError') {
-        next(new NotFoundError('Пользователь по указанному _id не найден'));
-      } else if (err.name === 'CastError') {
-        next(new BadRequest('Передан некорректный _id пользователя'));
-      } else {
-        next(err);
-      }
-    });
-};
-
 module.exports.getUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
@@ -41,9 +20,6 @@ module.exports.getUser = (req, res, next) => {
 
 module.exports.createUser = (req, res, next) => {
   const {
-    name,
-    about,
-    avatar,
     email,
     password,
   } = req.body;
@@ -55,9 +31,6 @@ module.exports.createUser = (req, res, next) => {
       } else {
         bcrypt.hash(password, SALT_ROUND)
           .then((hash) => User.create({
-            name: name ? escape(name) : undefined,
-            about: about ? escape(about) : undefined,
-            avatar,
             email,
             password: hash,
           }))
