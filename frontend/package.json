@@ -1,7 +1,8 @@
 {
-  "name": "mesto-react",
+  "name": "react-mesto-frontend",
   "version": "0.1.0",
-  "homepage": "https://UserGitHub37.github.io/react-mesto-auth",
+  "description": "Проект Mesto фронтенд + бэкенд",
+  "homepage": "https://UserGitHub37.github.io/react-mesto-api-full",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

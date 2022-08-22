@@ -1,5 +1,5 @@
 {
-  "name": "express-mesto-gha",
+  "name": "react-mesto-backend",
   "version": "1.0.0",
   "description": "Проект Mesto фронтенд + бэкенд",
   "main": "app.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UserGitHub37/express-mesto-gha.git"
+    "url": "git+https://github.com/UserGitHub37/react-mesto-api-full.git"
   },
   "keywords": [],
   "author": "Andrey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/UserGitHub37/express-mesto-gha/issues"
+    "url": "https://github.com/UserGitHub37/react-mesto-api-full/issues"
   },
-  "homepage": "https://github.com/UserGitHub37/express-mesto-gha#readme",
+  "homepage": "https://github.com/UserGitHub37/react-mesto-api-full",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "celebrate": "^15.0.1",
