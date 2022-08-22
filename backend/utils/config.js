@@ -10,7 +10,9 @@ const urlRegex = /^https?:\/\/(w{3}\.)?[0-9a-z.-]{1,256}(\/([0-9a-z\-._~:/?#[\]@
 const allowedCors = NODE_ENV !== 'production'
   ? [
     'http://localhost:3000',
+    'https://localhost:3000',
     'http://localhost:3001',
+    'https://localhost:3001',
   ]
   : ALLOWED_CORS.split(', ');
 
