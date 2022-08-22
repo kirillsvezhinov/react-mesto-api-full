@@ -19,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/UserGitHub37/react-mesto-api-full/issues"
   },
-  "homepage": "https://github.com/UserGitHub37/react-mesto-api-full",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "celebrate": "^15.0.1",
