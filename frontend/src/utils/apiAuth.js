@@ -13,7 +13,7 @@ class ApiAuth {
   }
 
   register(data) {
-    return fetch(`${this._baseUrl}/signup`, {
+    return fetch(`${this._baseUrl}signup`, {
         method: 'POST',
         headers: this._headers,
         body: JSON.stringify(data),
@@ -21,7 +21,7 @@ class ApiAuth {
   }
 
   authorize(data) {
-    return fetch(`${this._baseUrl}/signin`, {
+    return fetch(`${this._baseUrl}signin`, {
         method: 'POST',
         headers: this._headers,
         body: JSON.stringify(data),
@@ -30,7 +30,7 @@ class ApiAuth {
   }
 
   logout() {
-    return fetch(`${this._baseUrl}/signout`, {
+    return fetch(`${this._baseUrl}signout`, {
         method: 'GET',
         headers: this._headers,
         credentials: 'include'
@@ -38,7 +38,7 @@ class ApiAuth {
   }
 
   checkToken() {
-    return fetch(`${this._baseUrl}/auth`, {
+    return fetch(`${this._baseUrl}auth`, {
         method: 'GET',
         headers: this._headers,
         credentials: 'include'
@@ -48,7 +48,7 @@ class ApiAuth {
 }
 
 const apiAuth = new ApiAuth({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://apimesto.thirtyseven.nomoredomains.sbs/',
   headers: {
     'Content-Type': 'application/json',
   }
