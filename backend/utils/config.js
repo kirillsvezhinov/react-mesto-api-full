@@ -13,6 +13,8 @@ const allowedCors = NODE_ENV !== 'production'
     'https://localhost:3000',
     'http://localhost:3001',
     'https://localhost:3001',
+    'http://mesto.thirtyseven.nomoredomains.sbs',
+    'https://mesto.thirtyseven.nomoredomains.sbs',
   ]
   : ALLOWED_CORS.split(', ');
 
