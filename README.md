@@ -13,12 +13,11 @@
 + **Frontend:**
   React, JavaScript, HTML, CSS, БЭМ, Семантическая верстка, Адаптивная верстка.
 
-
 ##### Проект "react-mesto-api-full" создан на основе проектов:
-["react-mesto-auth"](https://github.com/UserGitHub37/react-mesto-auth) frontend проекта "mesto"
-["express-mesto-gha"](https://github.com/UserGitHub37/express-mesto-gha) backend проекта "mesto"
-["mesto-react"](https://github.com/UserGitHub37/mesto-react), переписан с чистого JavaScript на React
-["mesto"](https://github.com/UserGitHub37/mesto), написан на чистом JavaScript с использованием сборщика модулей Webpack
+- ["react-mesto-auth"](https://github.com/UserGitHub37/react-mesto-auth) frontend проекта "mesto"
+- ["express-mesto-gha"](https://github.com/UserGitHub37/express-mesto-gha) backend проекта "mesto"
+- ["mesto-react"](https://github.com/UserGitHub37/mesto-react), переписан с чистого JavaScript на React
+- ["mesto"](https://github.com/UserGitHub37/mesto), написан на чистом JavaScript с использованием сборщика модулей Webpack
 
 ##### Сайт создан на основе макетов, размещенных в Фигме:
 * [Ссылка на 1-ю часть макета в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
