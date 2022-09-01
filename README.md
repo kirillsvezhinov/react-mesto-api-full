@@ -38,3 +38,26 @@
 * [Чеклист для самопроверки. 13 Спринт.](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist_13.pdf)
 * [Чеклист для самопроверки. 14 Спринт.](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist_14.pdf)
 * [Чеклист для самопроверки. 15 Спринт.](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist_15.pdf)
+
+### Установка и запуск приложения на локальной машине:
+(для работы приложения потребуется локально установленная база данных [MongoDB](https://www.mongodb.com/try/download/community) на дефолтном порту 27017)
+
+1. Клонирование репозитория
+```bash
+git clone https://github.com/UserGitHub37/react-mesto-api-full.git
+```
+
+2. Через поиск вашего текстового редактора найдите в файле /frontend/src/utils/api.js и в файле /frontend/src/utils/apiAuth.js URL адрес https://apimesto.thirtyseven.nomoredomains.sbs и замените его на http://localhost:3000
+
+3. Запустите dev-сервер бэкенда (выполнить в папке backend)
+```bash
+npm run dev
+```
+
+4. Запустите dev-сервер фронтенда (выполнить в папке frontend)
+```bash
+npm start
+```
+Приложение сообщит, что порт 3000 занят (бэкендом) и предложит запустить приложение на другом порту. Выберете Yes.
+Произойдет запуск приложения с фронтендом в браузере.
+Если проект не откроется автоматически, то откройте в браузере http://localhost:3001
