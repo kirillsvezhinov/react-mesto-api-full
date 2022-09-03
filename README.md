@@ -13,12 +13,6 @@
 + **Frontend:**
   React, JavaScript, HTML, CSS, БЭМ, Семантическая верстка, Адаптивная верстка.
 
-#### Проект "react-mesto-api-full" создан на основе проектов:
-- ["react-mesto-auth"](https://github.com/UserGitHub37/react-mesto-auth) frontend проекта "mesto"
-- ["express-mesto-gha"](https://github.com/UserGitHub37/express-mesto-gha) backend проекта "mesto"
-- ["mesto-react"](https://github.com/UserGitHub37/mesto-react), переписан с чистого JavaScript на React
-- ["mesto"](https://github.com/UserGitHub37/mesto), написан на чистом JavaScript с использованием сборщика модулей Webpack
-
 #### Сайт создан на основе макетов, размещенных в Фигме:
 * [Ссылка на 1-ю часть макета в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
 * [Ссылка на 2-ю часть макета в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
@@ -41,6 +35,21 @@
 
 * * *
 
+#### Краткая история развития проекта "Mesto":
+- ["mesto"](https://github.com/UserGitHub37/mesto), написан на чистом JavaScript с использованием сборщика модулей Webpack
+
+- ["mesto-react"](https://github.com/UserGitHub37/mesto-react), переписан с чистого JavaScript на React
+
+- ["react-mesto-auth"](https://github.com/UserGitHub37/react-mesto-auth) дабавлено создание пользователей, их аутентификация и авторизация
+
+- ["express-mesto-gha"](https://github.com/UserGitHub37/express-mesto-gha) написан backend для проекта "mesto"
+
+- ["react-mesto-api-full"](https://github.com/UserGitHub37/react-mesto-api-full) fullstack приложение, включающее фронтенд и бэкенд части приложения
+
+По мере развития проект обрастал дополнительным функционалом, подробное описание которого можно посмотреть в README.md соответствующих проектов.
+
+* * *
+
 #### Установка и запуск приложения на локальной машине:
 (для работы приложения потребуется локально установленная база данных [MongoDB](https://www.mongodb.com/try/download/community) на дефолтном порту 27017)
 
@@ -51,12 +60,17 @@ git clone https://github.com/UserGitHub37/react-mesto-api-full.git
 
 2. Через поиск вашего текстового редактора найдите в файле /frontend/src/utils/api.js и в файле /frontend/src/utils/apiAuth.js URL адрес https://apimesto.thirtyseven.nomoredomains.sbs и замените его на http://localhost:3000
 
-3. Запустите dev-сервер бэкенда (выполнить в папке backend)
+3. Установка зависимостей (выполнить в папках frontend и backend)
+```bash
+npm install
+```
+
+4. Запустите dev-сервер бэкенда (выполнить в папке backend)
 ```bash
 npm run dev
 ```
 
-4. Запустите dev-сервер фронтенда (выполнить в папке frontend)
+5. Запустите dev-сервер фронтенда (выполнить в папке frontend)
 ```bash
 npm start
 ```
