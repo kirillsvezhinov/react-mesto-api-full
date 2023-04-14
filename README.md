@@ -4,8 +4,8 @@
 #### Функционал:
 Интерактивная страница с регистрацией и авторизацией пользователей, куда после авторизации можно добавлять и удалять фотографии, ставить лайки, редактировать информацию профиля, менять аватар.
 
-* сайт развернут в Yandex Cloud на Ubuntu 20.04 и доступен по адресу https://mesto.thirtyseven.nomoredomains.sbs
-* API сайта расположено на том же сервере, по адресу https://apimesto.thirtyseven.nomoredomains.sbs
+* сайт развернут в Timeweb Cloud на Ubuntu 20.04 и доступен по адресу https://mesto.tw1.ru/
+* API сайта расположено на том же сервере, по адресу https://api-mesto.tw1.ru/
 
 #### Технологии:
 + **Backend:**
@@ -58,7 +58,7 @@
 git clone https://github.com/UserGitHub37/react-mesto-api-full.git
 ```
 
-2. Через поиск вашего текстового редактора найдите в файле /frontend/src/utils/api.js и в файле /frontend/src/utils/apiAuth.js URL адрес https://apimesto.thirtyseven.nomoredomains.sbs и замените его на http://localhost:3000
+2. Через поиск вашего текстового редактора найдите в файле /frontend/src/utils/api.js и в файле /frontend/src/utils/apiAuth.js URL адрес https://api-mesto.tw1.ru/ и замените его на http://localhost:3000
 
 3. Установка зависимостей (выполнить в папках frontend и backend)
 ```bash
