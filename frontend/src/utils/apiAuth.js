@@ -48,7 +48,7 @@ class ApiAuth {
 }
 
 const apiAuth = new ApiAuth({
-  baseUrl: 'https://api-mesto.tw1.ru/',
+  baseUrl: '/api/',
   headers: {
     'Content-Type': 'application/json',
   }

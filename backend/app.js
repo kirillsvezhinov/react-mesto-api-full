@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, MONGO_URI = 'mongodb://localhost:27017/mydatabase' } = process.env;
 const NotFoundError = require('./errors/not-found-err');
 const { STATUS_CODE_OK, STATUS_CODE_INTERNAL_SERVER_ERROR } = require('./utils/statusCodes');
 const { login } = require('./controllers/login');
@@ -30,7 +30,8 @@ app.use(helmet());
 
 app.use(cookieParser());
 
-mongoose.connect('mongodb://localhost:27017/mestodb');
+mongoose.connect(MONGO_URI.toString());
+mongoose.set('strictQuery', false);
 
 app.use(express.json());
 
@@ -40,27 +41,27 @@ app.use(cors);
 
 // Чтобы на ревью смогли протестировать автоматическое восстановление приложения после падения
 // После ревью удалить
-app.get('/crash-test', () => {
+app.get('/api/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
 
-app.post('/signin', celebrate({
+app.post('/api/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
   }),
 }), login);
 
-app.post('/signup', celebrate({
+app.post('/api/signup', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
   }),
 }), createUser);
 
-app.get('/auth', auth, (req, res, next) => {
+app.get('/api/auth', auth, (req, res, next) => {
   try {
     res.sendStatus(STATUS_CODE_OK);
   } catch (err) {
@@ -68,13 +69,13 @@ app.get('/auth', auth, (req, res, next) => {
   }
 });
 
-app.get('/signout', logout);
+app.get('/api/signout', logout);
 
 app.use(auth);
 
-app.use('/users', require('./routes/users'));
+app.use('/api/users', require('./routes/users'));
 
-app.use('/cards', require('./routes/cards'));
+app.use('/api/cards', require('./routes/cards'));
 
 app.use('*', (req, res, next) => next(new NotFoundError('404 Not Found')));
 

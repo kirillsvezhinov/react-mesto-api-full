@@ -85,7 +85,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://api-mesto.tw1.ru/',
+  baseUrl: '/api/',
   headers: {
     'Content-Type': 'application/json',
   }
